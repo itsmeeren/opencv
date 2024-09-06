@@ -1,0 +1,19 @@
+waitkey()
+It's often used in conjunction with cv2.imshow() to display images and keep the window open until a key is pressed.
+
+video=cv.VideoCapture('cat.mp4')
+while True:
+    isTrue, frame = video.read()
+    cv.imshow('video',frame)
+    if cv.waitKey(1) & 0xFF == ord('q'):
+        break
+video.release()
+
+above if the key q is pressed it will stop the loop
+
+Image resizing
+
+def imageresize(frame,scale=0.75):
+    width = int(frame.shape[1] * scale)
+    height = int(frame.shape[0] * scale)
+    return cv.resize(frame,(width,height),interpolation=cv.INTER_AREA)
