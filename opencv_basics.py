@@ -61,5 +61,7 @@ cv.imshow('cat',img)
 
 #writing text
 
-cv.putText(blank,"Fuck you",(blank.shape[1]//2,blank.shape[0]//2),cv.FONT_HERSHEY_TRIPLEX,1,(0,0,255),2)
-cv.imshow('Fuck',blank)
+cv.putText(blank,"lol",(blank.shape[1]//2,blank.shape[0]//2),cv.FONT_HERSHEY_TRIPLEX,1,(0,0,255),2)
+cv.imshow('lol',blank)
+
+

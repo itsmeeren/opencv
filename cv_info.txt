@@ -17,3 +17,17 @@ def imageresize(frame,scale=0.75):
     width = int(frame.shape[1] * scale)
     height = int(frame.shape[0] * scale)
     return cv.resize(frame,(width,height),interpolation=cv.INTER_AREA)
+
+
+ Main functions in openCV
+
+ Edge cascading is a technique used to detect edges in images. It involves applying a series of edge detectors,
+ each tuned to detect edges at different scales and orientations.
+
+Dilation: Dilation expands the boundaries of objects in an image. It's useful for filling in holes or gaps in objects.
+
+Erosion: Erosion shrinks the boundaries of objects in an image. It's useful for removing small noise or imperfections
+
+
+
+
