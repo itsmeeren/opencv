@@ -28,6 +28,56 @@ Dilation: Dilation expands the boundaries of objects in an image. It's useful fo
 
 Erosion: Erosion shrinks the boundaries of objects in an image. It's useful for removing small noise or imperfections
 
+Translation
+
+    shifting an image along the x and y axis (up and down, right and left)
+    create transform maatrix  , and height --> img.shape[0] and width img.shape[1]
+
+contour
+
+    contours are basically the boundaries  of the objects
+    
+
+#To find the contour of teh image
+
+# 1 Take the grayscale of the image
+# 2 Take the canny or edges o fthe images
+# 3 Use contour function to get the heirarchy and contour
+# 4 Take the blank picture using numpy arrays
+# 5 Draw the contours on that blank image
+
+
+using the threshhold function we can consider the required pixels only while detecting the object
+
+
+Color spaces are basically a space of colors like RGB, GRAY , HSV , lAB
+matplotlib only supports RGB not BGR
+
+using cv.split() we can seperate the BGR values into respective variable like this --> b,g,r=cv.split(img)
+and we can merge all the color channel into single image --> cv.merge([b,g,r])
+
+we can process the image and seperate the colors by merging it with blank image
+
+image is smoothened when it tends to have so many noise
+actually kernel size is no of rows and no of columns
+
+Bilateral blurring is most suitable for the center object focusing
+
+
+By using bitwise operations we can do masking of image
+
+masking
+
+focusing on certain part of the image
+
+Histogram
+
+we can visualize the intensity of the pixel distribution with histogram
+
+Thresholding is the linearizing of an image , turning the pixel below threshold values to 0 and above to 1
+
+
+
 
 
 

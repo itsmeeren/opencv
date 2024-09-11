@@ -1,27 +1,46 @@
-import cv2 as cv
 import numpy as np
+import cv2 as cv
+import matplotlib.pyplot as plt
+def resize(frame,scale=0.75):
+    width = int(frame.shape[1] * scale)
+    height = int(frame.shape[0] * scale)
+    return cv.resize(frame,(width,height),interpolation=cv.INTER_AREA)
 
 
-#creating the blank image using numpy
-blank=np.zeros((500,500,3),np.uint8)
-
-#paint the image
-
-# blank[200:300,300:350]=0,255,0
+# img=cv.imread('im/tom.jpeg')
 #
-# cv.imshow('blank',blank)
+# gray=cv.cvtColor(img,cv.COLOR_BGR2GRAY)
+#
+# #color channel split and merge
+#
+# b,g,r=cv.split(img)
+# blank=np.zeros(img.shape[:2],np.uint8)
+#
+# blue_img=cv.merge((b,blank,blank))
+# cv.imshow('blue',blue_img)
+# green_img=cv.merge((blank,g,blank))
+# cv.imshow('green',green_img)
+# red_img=cv.merge((blank,blank,r))
+# cv.imshow('red',red_img)
 
-img=cv.imread('im/cat.png')
+img=cv.imread("im/tom.jpeg")
 
-def resize(img,scale=0.75):
- width=int(img.shape[1]*scale)
- height=int(img.shape[0]*scale)
- return cv.resize(img,(width,height),interpolation=cv.INTER_AREA)
+gray=cv.cvtColor(img,cv.COLOR_BGR2GRAY)
+# cv.imshow('gray',resize(gray,scale=3.25))
 
-canny=resize(cv.Canny(img,100,200),0.75)
 
-dilated=cv.dilate(canny,(7,7),iterations=1)
-cv.imshow("dilated",dilated)
-# cv.imshow('canny',canny)
+threshold,thresh=cv.threshold(gray,125,255,cv.THRESH_BINARY)
+cv.imshow('thresh',resize(thresh,scale=3.25))
+
+adaptive_thresh=cv.adaptiveThreshold(gray,255,cv.ADAPTIVE_THRESH_MEAN_C,cv.THRESH_BINARY_INV,11,9)
+cv.imshow('adaptive_thresh',resize(adaptive_thresh,3.25))
+
+adaptive_thresh1=cv.adaptiveThreshold(gray,255,cv.ADAPTIVE_THRESH_MEAN_C,cv.THRESH_BINARY_INV,13,5)
+cv.imshow('adaptive_thresh1',resize(adaptive_thresh1,3.25))
+
+# cv.imshow('img',img)
+
+
+
+
 cv.waitKey(0)
-

@@ -29,3 +29,8 @@ cv.imshow("dilated",dilated)
 eroded=cv.erode(dilated,(3,3),iterations=1)
 cv.imshow("eroded",eroded)
 cv.waitKey(0)
+
+# 6 cropping
+
+cropped=img[100:200,200:400]
+cv.imshow("cropped",cropped)
