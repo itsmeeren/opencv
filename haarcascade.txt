@@ -1,0 +1,3 @@
+The haar cascade model is more immune to noises so the min neighbours can be set according to the no of object (here faces )
+that are being detected ( low --> immune to noise
+                          high --> less immune)
