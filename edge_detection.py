@@ -15,7 +15,7 @@ gray=cv.cvtColor(img,cv.COLOR_BGR2GRAY)
 
 lap=cv.Laplacian(gray,cv.CV_64F)# d depth --> datadepth
 
-lap=np.uint8(np.absolute(lap)) # Laplacian operator may have negetive and posiive values as well so taking absolute
+lap=np.uint8(np.absolute(lap)) # Laplacian operator may have negative and positive values as well so taking absolute
 # cv.imshow('lap',resize(lap,3.25))
 
 # 2 Sobel method
