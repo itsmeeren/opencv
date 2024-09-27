@@ -3,22 +3,23 @@ import numpy as np
 import os
 
 # Load people's names
-people = []
-DIR = '/home/karthik/opencv/people/'
-
-for person in os.listdir(DIR):
-    if os.path.isdir(os.path.join(DIR, person)):
-        people.append(person)
+people = ['dhoni','ronaldo',"Kohli","messi",'mbappe']
+# DIR = '/home/karthik/opencv/people/'
+#
+# for person in os.listdir(DIR):
+#     if os.path.isdir(os.path.join(DIR, person)):
+#         people.append(person)
 
 # Load the trained face recognizer
-face_recognizer = cv.face.LBPHFaceRecognizer_create()  # Ensure using the correct method
+face_recognizer = cv.face.LBPHFaceRecognizer_create()
+
 face_recognizer.read('face_recognizer.yml')
 
 # Load Haar Cascade for face detection
 haar_cascade = cv.CascadeClassifier('haar_face.xml')
 
 # Load the image for recognition
-img = cv.imread('mb2.jpg')
+img = cv.imread('kohli.jpeg')
 # img=img[20:200,100:400]
 # cv.imshow(cropped)
 
@@ -43,7 +44,7 @@ else:
         label, confidence = face_recognizer.predict(face_roi_resized)
 
         # Check if the prediction is confident enough
-        if confidence < 100:  # Adjust this threshold based on your confidence levels
+        if confidence < 100:
             print(f'Label: {people[label]}, Confidence: {confidence:.2f}')
             # Annotate the image with the predicted label (person's name)
             cv.putText(img, people[label], (x, y - 10), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
@@ -53,7 +54,8 @@ else:
         # Draw a rectangle around the detected face
         cv.rectangle(img, (x, y), (x + w, y + h), (0, 255, 0), 2)
 
-# Show the annotated image with the detected and recognized face
+# Showing  the detected image with the detected and recognized face
 cv.imshow('Recognized Face', img)
 cv.waitKey(0)
 cv.destroyAllWindows()
+
